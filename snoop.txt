@@ -1,0 +1,118 @@
+Source path:... C:\Users\Brian\projects\movie$\box_office_full_query.py
+19:15:04.661758 call         7 def main():
+19:15:04.663758 line         8     print("Start: " + str(datetime.datetime.now().strftime("%I:%m %p")))
+19:15:04.663758 line        10     year = input("What year do you want to query on? ")
+New var:....... year = '2024'
+19:15:10.200335 line        12     start_week = input("What week do you want to start on? ")
+New var:....... start_week = '1'
+19:15:11.616829 line        13     start_week = str(int(start_week) + 100)[1:]
+Modified var:.. start_week = '01'
+19:15:11.621503 line        15     end_week = input("What week do you want to end on? ")
+New var:....... end_week = '2'
+19:15:13.537413 line        16     end_week = str(int(end_week) + 100)[1:]
+Modified var:.. end_week = '02'
+19:15:13.541479 line        18     date_range = range(int(year + start_week), int(year + end_week) +1)
+New var:....... date_range = range(202401, 202403)
+19:15:13.544016 line        20     movie_dollars = []
+New var:....... movie_dollars = []
+19:15:13.545010 line        22     for date_time_variable in date_range:
+New var:....... date_time_variable = 202401
+19:15:13.546009 line        23         timeperiod = str(date_time_variable)[:4] + 'W' + str(date_time_variable)[4:]
+New var:....... timeperiod = '2024W01'
+19:15:13.546009 line        24         print(timeperiod)
+19:15:13.547012 line        26         print(f'This is the Time Period: {timeperiod}')
+19:15:13.547012 line        28         url: str = f"https://www.boxofficemojo.com/weekend/{timeperiod}/"
+New var:....... url = 'https://www.boxofficemojo.com/weekend/2024W01/'
+19:15:13.547012 line        29         print(f'This is the name of the url:  {url}')
+19:15:13.548590 line        30         movie_dollar: pd.DataFrame = pd.read_html(url)[0]
+New var:....... movie_dollar =     Rank  LW  ... New This Week Estimated0      ......         False     False[60 rows x 13 columns]
+19:15:15.203136 line        31         movie_dollars.append(movie_dollar)
+Modified var:.. movie_dollars = [    Rank  LW  ... New This Week Estimated0     .....         False     False[60 rows x 13 columns]]
+19:15:15.250053 line        22     for date_time_variable in date_range:
+Modified var:.. date_time_variable = 202402
+19:15:15.293738 line        23         timeperiod = str(date_time_variable)[:4] + 'W' + str(date_time_variable)[4:]
+Modified var:.. timeperiod = '2024W02'
+19:15:15.354885 line        24         print(timeperiod)
+19:15:15.416554 line        26         print(f'This is the Time Period: {timeperiod}')
+19:15:15.465913 line        28         url: str = f"https://www.boxofficemojo.com/weekend/{timeperiod}/"
+Modified var:.. url = 'https://www.boxofficemojo.com/weekend/2024W02/'
+19:15:15.514706 line        29         print(f'This is the name of the url:  {url}')
+19:15:15.573284 line        30         movie_dollar: pd.DataFrame = pd.read_html(url)[0]
+Modified var:.. movie_dollar =     Rank  LW  ... New This Week Estimated0      ......         False     False[62 rows x 13 columns]
+19:15:17.073333 line        31         movie_dollars.append(movie_dollar)
+Modified var:.. movie_dollars = [    Rank  LW  ... New This Week Estimated0     .....         False     False[62 rows x 13 columns]]
+19:15:17.126538 line        22     for date_time_variable in date_range:
+19:15:17.193384 line        36     movies = movie_dollars[0]
+New var:....... movies =     Rank  LW  ... New This Week Estimated0      ......         False     False[60 rows x 13 columns]
+19:15:17.259950 line        38     for movie_dataframe in movie_dollars[1:]:
+New var:....... movie_dataframe =     Rank  LW  ... New This Week Estimated0      ......         False     False[62 rows x 13 columns]
+19:15:17.355041 line        39         movies = pd.concat([movies, movie_dataframe])
+Modified var:.. movies =     Rank  LW  ... New This Week Estimated0      .....         False     False[122 rows x 13 columns]
+19:15:17.483297 line        38     for movie_dataframe in movie_dollars[1:]:
+19:15:17.588053 line        41     '''print(movies.shape)
+19:15:17.702233 line        57     location_for_file_export1 = r'C:\Users\Brian\projects\movie$\Box_Office1.xlsx'
+New var:....... location_for_file_export1 = 'C:\\Users\\Brian\\projects\\movie$\\Box_Office1.xlsx'
+19:15:17.813749 line        58     movies.to_excel(location_for_file_export1, index=False, engine="openpyxl")
+19:15:17.944424 exception   58     movies.to_excel(location_for_file_export1, index=False, engine="openpyxl")
+Exception:..... PermissionError: [Errno 13] Permission denied: '...Users\\Brian\\projects\\movie$\\Box_Office1.xlsx'
+Call ended by exception
+Elapsed time: 00:00:13.507681
+Source path:... C:\Users\Brian\projects\movie$\box_office_full_query.py
+19:15:36.022358 call         7 def main():
+19:15:36.023357 line         8     print("Start: " + str(datetime.datetime.now().strftime("%I:%m %p")))
+19:15:36.023357 line        10     year = input("What year do you want to query on? ")
+New var:....... year = '2024'
+19:15:39.683844 line        12     start_week = input("What week do you want to start on? ")
+New var:....... start_week = '1'
+19:15:40.685329 line        13     start_week = str(int(start_week) + 100)[1:]
+Modified var:.. start_week = '01'
+19:15:40.686324 line        15     end_week = input("What week do you want to end on? ")
+New var:....... end_week = '2'
+19:15:41.705458 line        16     end_week = str(int(end_week) + 100)[1:]
+Modified var:.. end_week = '02'
+19:15:41.706458 line        18     date_range = range(int(year + start_week), int(year + end_week) +1)
+New var:....... date_range = range(202401, 202403)
+19:15:41.707459 line        20     movie_dollars = []
+New var:....... movie_dollars = []
+19:15:41.708459 line        22     for date_time_variable in date_range:
+New var:....... date_time_variable = 202401
+19:15:41.709472 line        23         timeperiod = str(date_time_variable)[:4] + 'W' + str(date_time_variable)[4:]
+New var:....... timeperiod = '2024W01'
+19:15:41.710489 line        24         print(timeperiod)
+19:15:41.711499 line        26         print(f'This is the Time Period: {timeperiod}')
+19:15:41.712488 line        28         url: str = f"https://www.boxofficemojo.com/weekend/{timeperiod}/"
+New var:....... url = 'https://www.boxofficemojo.com/weekend/2024W01/'
+19:15:41.713483 line        29         print(f'This is the name of the url:  {url}')
+19:15:41.714487 line        30         movie_dollar: pd.DataFrame = pd.read_html(url)[0]
+New var:....... movie_dollar =     Rank  LW  ... New This Week Estimated0      ......         False     False[60 rows x 13 columns]
+19:15:43.336512 line        31         movie_dollars.append(movie_dollar)
+Modified var:.. movie_dollars = [    Rank  LW  ... New This Week Estimated0     .....         False     False[60 rows x 13 columns]]
+19:15:43.372473 line        22     for date_time_variable in date_range:
+Modified var:.. date_time_variable = 202402
+19:15:43.428160 line        23         timeperiod = str(date_time_variable)[:4] + 'W' + str(date_time_variable)[4:]
+Modified var:.. timeperiod = '2024W02'
+19:15:43.483079 line        24         print(timeperiod)
+19:15:43.539466 line        26         print(f'This is the Time Period: {timeperiod}')
+19:15:43.587280 line        28         url: str = f"https://www.boxofficemojo.com/weekend/{timeperiod}/"
+Modified var:.. url = 'https://www.boxofficemojo.com/weekend/2024W02/'
+19:15:43.653783 line        29         print(f'This is the name of the url:  {url}')
+19:15:43.703828 line        30         movie_dollar: pd.DataFrame = pd.read_html(url)[0]
+Modified var:.. movie_dollar =     Rank  LW  ... New This Week Estimated0      ......         False     False[62 rows x 13 columns]
+19:15:45.186892 line        31         movie_dollars.append(movie_dollar)
+Modified var:.. movie_dollars = [    Rank  LW  ... New This Week Estimated0     .....         False     False[62 rows x 13 columns]]
+19:15:45.241741 line        22     for date_time_variable in date_range:
+19:15:45.324637 line        36     movies = movie_dollars[0]
+New var:....... movies =     Rank  LW  ... New This Week Estimated0      ......         False     False[60 rows x 13 columns]
+19:15:45.391248 line        38     for movie_dataframe in movie_dollars[1:]:
+New var:....... movie_dataframe =     Rank  LW  ... New This Week Estimated0      ......         False     False[62 rows x 13 columns]
+19:15:45.474543 line        39         movies = pd.concat([movies, movie_dataframe])
+Modified var:.. movies =     Rank  LW  ... New This Week Estimated0      .....         False     False[122 rows x 13 columns]
+19:15:45.611855 line        38     for movie_dataframe in movie_dollars[1:]:
+19:15:45.736340 line        41     '''print(movies.shape)
+19:15:45.860701 line        57     location_for_file_export1 = r'C:\Users\Brian\projects\movie$\Box_Office1.xlsx'
+New var:....... location_for_file_export1 = 'C:\\Users\\Brian\\projects\\movie$\\Box_Office1.xlsx'
+19:15:45.996949 line        58     movies.to_excel(location_for_file_export1, index=False, engine="openpyxl")
+19:15:46.361009 line        60     print("End: " + str(datetime.datetime.now().strftime("%I:%m %p")))
+19:15:46.556021 return      60     print("End: " + str(datetime.datetime.now().strftime("%I:%m %p")))
+Return value:.. None
+Elapsed time: 00:00:10.665817
